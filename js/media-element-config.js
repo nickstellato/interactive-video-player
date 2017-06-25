@@ -1,6 +1,7 @@
 (function($){
     $('video').mediaelementplayer({
         features:   ['playpause', 'current', 'progress', 'duration', 'volume','fullscreen'],
-        stretching: 'auto'
+        videoHeight: "100%",
+        videoWidth: "100%"
     });
 })(jQuery);
