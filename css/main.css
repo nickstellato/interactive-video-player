@@ -10,6 +10,18 @@ body {
     font-size: 18px;
 }
 
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.video-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 video {
     width: 100%;
 }
@@ -32,13 +44,18 @@ video {
 /*************************/
 
 @media screen and (min-width: 768px) {
+    .video-wrapper {
+        width: 100%;
+        margin-top: 2em;
+    }
+
     video {
         width: 100%;
     }
 
     .transcript {
         width: 60%;
-        margin: 1.2em auto;
+        margin-top: 1.2em;
         line-height: 1.8;
     }
 }
