@@ -12,6 +12,7 @@ body {
 
 video {
     width: 100%;
+    display: block;
 }
 
 .transcript {
@@ -30,3 +31,16 @@ video {
 /*************************/
 /*    MEDIA QUERIES      */
 /*************************/
+
+@media screen and (min-width: 768px) {
+    video {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .transcript {
+        width: 60%;
+        margin: 1.2em auto;
+        line-height: 1.8;
+    }
+}
