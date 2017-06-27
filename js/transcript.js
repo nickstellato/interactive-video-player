@@ -2,26 +2,21 @@
 
     const video = document.querySelector('video');
     const transcript = document.querySelector('.transcript');
-    const transcriptSections = transcript.querySelectorAll('span');
+    const sentences = [].slice.call(transcript.querySelectorAll('span'));
 
     video.addEventListener('timeupdate', () => {
-        for (let i = 0; i < transcriptSections.length; i += 1) {
-            let section = transcriptSections.item(i);
-            let nextSection = section.nextElementSibling;
+        for (let i = 0; i < sentences.length; i += 1) {
+            let currentSentence = sentences[i];
+            let nextSentence = sentences[i+1];
+            let lastSentence = sentences[sentences.length-1];
 
-            console.log(nextSection);
-
-            if (section.dataset.time < video.currentTime) {
-                section.className = 'highlight';
-            }
-
-            if (nextSection.dataset.time < video.currentTime) {
-                section.className = '';
-            }
-
-            // if (section.dataset.time < video.currentTime) {
-            //     section.className = 'highlight';
-            // }
+            if (video.currentTime > currentSentence.dataset.time && currentSentence == lastSentence) {
+                currentSentence.className = 'highlight';
+            } else if (video.currentTime > currentSentence.dataset.time && video.currentTime < nextSentence.dataset.time) {
+                currentSentence.className = 'highlight';
+            } else if (video.currentTime > currentSentence.dataset.time && video.currentTime > nextSentence.dataset.time) {
+                currentSentence.className = '';
+            };
         }
     });
 
