@@ -9,7 +9,6 @@
             let currentSentence = sentences[i];
             let nextSentence = sentences[i+1];
             let lastSentence = sentences[sentences.length-1];
-
             if (video.currentTime > currentSentence.dataset.time && currentSentence == lastSentence) {
                 currentSentence.className = 'highlight';
             } else if (video.currentTime > currentSentence.dataset.time && video.currentTime < nextSentence.dataset.time) {
@@ -18,6 +17,12 @@
                 currentSentence.className = '';
             };
         }
+    });
+
+    sentences.forEach((element) => {
+        element.addEventListener('click', () => {
+            video.currentTime = element.dataset.time;
+        })
     });
 
 })();
