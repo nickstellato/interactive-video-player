@@ -26,7 +26,8 @@
     sentences.forEach((element) => {
         element.addEventListener('click', () => {
             video.currentTime = element.dataset.time;
+            video.play();
         })
     });
-
+    
 })();
