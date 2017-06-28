@@ -9,13 +9,17 @@
             let currentSentence = sentences[i];
             let nextSentence = sentences[i+1];
             let lastSentence = sentences[sentences.length-1];
+            
+            //removes the sentencing highlighting on the last sentence when clicking the replay button
+            lastSentence.className = '';
+            
             if (video.currentTime > currentSentence.dataset.time && currentSentence == lastSentence) {
                 currentSentence.className = 'highlight';
             } else if (video.currentTime > currentSentence.dataset.time && video.currentTime < nextSentence.dataset.time) {
                 currentSentence.className = 'highlight';
             } else if (video.currentTime > currentSentence.dataset.time && video.currentTime > nextSentence.dataset.time) {
                 currentSentence.className = '';
-            };
+            }
         }
     });
 
